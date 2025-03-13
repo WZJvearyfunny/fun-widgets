@@ -7,9 +7,8 @@ const touchCardRef = ref<HTMLElement>();
 const { width, height } = useElementSize(touchCardRef);
 
 const touchTransform = (x: number, y: number): void => {
-  const rotateX = -(y / (height.value / 2) - 1) * 10;
-  const rotateY = (x / (width.value / 2) - 1) * 10;
-  console.log(x / (width.value / 2));
+  const rotateX = -(y / (height.value / 2) - 1) * 6;
+  const rotateY = (x / (width.value / 2) - 1) * 6;
   transform.value = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 };
 
@@ -17,7 +16,7 @@ const handleMouseOut = () =>
   (transform.value = "perspective(2000px) rotateX(0deg) rotateY(0deg)");
 
 const handleMouseMove = (event: MouseEvent) => {
-  const { layerX: x, layerY: y } = event;
+  const { offsetX: x, offsetY: y } = event;
   touchTransform(x, y);
 };
 </script>
@@ -41,7 +40,7 @@ const handleMouseMove = (event: MouseEvent) => {
         </div>
       </div>
       <img
-        class="absolute pointer-events-none translate-z-1 w-1/4 -right-1/8 rounded-full border-1 border-white"
+        class="absolute pointer-events-none translate-z-12 w-1/4 -right-1/8 rounded-full border-1 border-white"
         src="https://p3-flow-imagex-sign.byteimg.com/user-avatar/f9e7748c4fea045de8a774d0836ad177~tplv-a9rns2rl98-image.jpeg?rk3s=98c978ad&x-expires=1743502443&x-signature=YLBy9quP5%2B3%2BsPEza3K4SfeRfNg%3D"
       />
     </div>

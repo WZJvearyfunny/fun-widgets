@@ -1,0 +1,1 @@
+export { default as TouchCard } from './TouchCard.vue';
